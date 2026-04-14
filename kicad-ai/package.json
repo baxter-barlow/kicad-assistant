@@ -1,0 +1,42 @@
+{
+  "name": "kicad-ai",
+  "version": "0.2.0",
+  "description": "KiCad schematic automation library and MCP server",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "kicad-ai-mcp": "dist/server/main.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./server": {
+      "types": "./dist/server/main.d.ts",
+      "import": "./dist/server/main.js"
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "mcp": "node dist/server/main.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.2",
+    "kicadts": "^0.0.26",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}
